@@ -14,7 +14,6 @@ public class AsukasLiikkuu : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
 
-        // Aseta ensimmäinen reittipiste hahmon kohteeksi
         SetNextWaypoint();
     }
 
@@ -22,12 +21,18 @@ public class AsukasLiikkuu : MonoBehaviour
     {
         Debug.Log("Distance to waypoint: " + Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position));
 
-        // Tarkista etäisyys ja käytä myös NavMeshAgentin remainingDistance-tarkistusta
         if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position) < 0.5f ||
             agent.remainingDistance < 0.1f)
         {
             SetNextWaypoint();
         }
+
+        if (agent.pathStatus == NavMeshPathStatus.PathPartial)
+        {
+            //Jos jotaki on vikana 
+            Debug.LogError("NavMesh path is partial.");
+        }
+
     }
 
 
@@ -35,19 +40,15 @@ public class AsukasLiikkuu : MonoBehaviour
     {
         Debug.Log("Setting next waypoint");
 
-        // Tarkista, onko taulukossa enemmän reittipisteitä
         if (currentWaypointIndex < waypoints.Length - 1)
         {
-            // Jos on, siirry seuraavaan reittipisteeseen
             currentWaypointIndex++;
         }
         else
         {
-            // Jos ei, palaa ensimmäiseen reittipisteeseen
             currentWaypointIndex = 0;
         }
 
-        // Aseta hahmon kohteeksi uusi reittipiste
         agent.SetDestination(waypoints[currentWaypointIndex].position);
     }
 }
