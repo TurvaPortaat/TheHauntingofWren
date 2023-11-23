@@ -17,18 +17,21 @@ public class PlayerLocomotion : MonoBehaviour
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
+        //playerRigidbody = GetComponentInChildren<Rigidbody>();
         playerRigidbody = GetComponent<Rigidbody>();
         cameraObject = Camera.main.transform;
     }
 
     public void HandleAllMovement()
     {
+        Debug.Log("Handling all movement...");
         HandleMovement();
         HandleRotation();
     }
 
     public void HandleMovement()
     {
+        Debug.Log("Handling movement...");
         moveDirection = cameraObject.forward* inputManager.verticalInput;
         moveDirection = moveDirection + cameraObject.right* inputManager.horizontalInput;
         moveDirection.Normalize();
@@ -41,6 +44,7 @@ public class PlayerLocomotion : MonoBehaviour
 
     public void HandleRotation()
     {
+        Debug.Log("Handling rotation...");
         Vector3 targetDirection = Vector3.zero;
         targetDirection = cameraObject.forward*inputManager.verticalInput;
         targetDirection = targetDirection + cameraObject.right * inputManager.horizontalInput;
