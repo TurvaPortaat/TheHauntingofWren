@@ -24,14 +24,14 @@ public class PlayerLocomotion : MonoBehaviour
 
     public void HandleAllMovement()
     {
-        Debug.Log("Handling all movement...");
+        //Debug.Log("Handling all movement...");
         HandleMovement();
         HandleRotation();
     }
 
     public void HandleMovement()
     {
-        Debug.Log("Handling movement...");
+        //Debug.Log("Handling movement...");
         moveDirection = cameraObject.forward* inputManager.verticalInput;
         moveDirection = moveDirection + cameraObject.right* inputManager.horizontalInput;
         moveDirection.Normalize();
@@ -44,16 +44,20 @@ public class PlayerLocomotion : MonoBehaviour
 
     public void HandleRotation()
     {
-        Debug.Log("Handling rotation...");
-        Vector3 targetDirection = Vector3.zero;
-        targetDirection = cameraObject.forward*inputManager.verticalInput;
-        targetDirection = targetDirection + cameraObject.right * inputManager.horizontalInput;
-        targetDirection.Normalize();
-        targetDirection.y = 0;
-        
-        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-        Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed*Time.deltaTime);
+        // Check if there is any movement (non-zero velocity)
+        if (playerRigidbody.velocity.magnitude > 0.1f)
+        {
+            // Get the direction of movement from the velocity
+            Vector3 targetDirection = playerRigidbody.velocity.normalized;
 
-        transform.rotation = playerRotation;
+            // Only rotate if there is significant movement
+            if (targetDirection != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
+                Quaternion playerRotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+                transform.rotation = playerRotation;
+            }
+        }
     }
 }
