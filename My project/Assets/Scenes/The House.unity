@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4372601, g: 0.48501968, b: 0.5652894, a: 1}
+  m_IndirectSpecularColor: {r: 0.42622736, g: 0.45883846, b: 0.48534787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1653,7 +1653,7 @@ MonoBehaviour:
   m_OverrideTileSize: 1
   m_TileSize: 30
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.13333334
+  m_VoxelSize: 0.033333335
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 32f2a38dd2be54647bc36ac61c49ff93, type: 2}
   m_BuildHeightMesh: 0
@@ -2575,13 +2575,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409932140}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.68512845, y: -0.008385788, z: -0.08861361, w: 0.7229636}
-  m_LocalPosition: {x: -2.03, y: 14.68, z: 1.77}
+  m_LocalRotation: {x: 0.06981206, y: 0.70365214, z: -0.015696894, w: 0.70693254}
+  m_LocalPosition: {x: 0, y: 30, z: 1.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 81.556, y: -65.431, z: -71.952}
+  m_LocalEulerAnglesHint: {x: 6.938, y: 90, z: 4.394}
 --- !u!4 &424360993 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 705271130411357289, guid: 3f10cdcc7dca48c4f9017d4ff1b86c1a, type: 3}
@@ -6872,17 +6872,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f71dd9dbc8bd54bbd5b1dd2a823788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 493806448}
-  - {fileID: 764429219}
-  - {fileID: 1244072679}
-  - {fileID: 1523415559}
-  - {fileID: 110545685}
-  - {fileID: 1733296129}
-  - {fileID: 242471209}
-  - {fileID: 2025100903}
-  - {fileID: 1504120863}
-  - {fileID: 43870957}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  range: 0
 --- !u!195 &1556624888
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7752,28 +7745,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5f71dd9dbc8bd54bbd5b1dd2a823788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 1782838076}
-  - {fileID: 1390317573}
-  - {fileID: 1163903046}
-  - {fileID: 1495245675}
-  - {fileID: 482647097}
-  - {fileID: 207842981}
-  - {fileID: 176812793}
-  - {fileID: 991261765}
-  - {fileID: 357389703}
-  - {fileID: 857293452}
-  - {fileID: 1623862499}
-  - {fileID: 2010850751}
-  - {fileID: 1445862302}
-  - {fileID: 1418785299}
-  - {fileID: 1317745063}
-  - {fileID: 659603607}
-  - {fileID: 339922883}
-  - {fileID: 2145172399}
-  - {fileID: 483307422}
-  - {fileID: 641907809}
-  - {fileID: 1946022969}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  range: 0
 --- !u!195 &1859454202
 NavMeshAgent:
   m_ObjectHideFlags: 0
