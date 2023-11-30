@@ -1,44 +1,54 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+
 public class AsukasLiikkuu : MonoBehaviour
 {
     NavMeshAgent agent;
 
-    [SerializeField] LayerMask groundLayer;
-
-    //patrol
-    Vector3 destPoint;
-    bool walkpointSet;
-    [SerializeField] float range;
+    // Waypoints
+    public Transform[] waypoints;
+    int currentWaypointIndex = 0;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+
+        SetNextWaypoint();
     }
 
     void Update()
     {
-        Patrol();
-    }
+        Debug.Log("Distance to waypoint: " + Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position));
 
-    void Patrol()
-    {
-        if (!walkpointSet) SearchForDest();
-        if (walkpointSet) agent.SetDestination(destPoint);
-        if (Vector3.Distance(transform.position, destPoint) < 10) walkpointSet = false;
-    }
-
-    void SearchForDest()
-    {
-        float z = Random.Range(-range, range);
-        float x = Random.Range(-range, range);
-
-        destPoint = new Vector3(transform.position.x + x, transform.position.y, transform.position.z + z);
-
-        if(Physics.Raycast(destPoint, Vector3.down, groundLayer))
+        if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position) < 0.5f ||
+            agent.remainingDistance < 0.1f)
         {
-            walkpointSet = true;
+            SetNextWaypoint();
         }
+
+        if (agent.pathStatus == NavMeshPathStatus.PathPartial)
+        {
+            //Jos jotaki on vikana 
+            Debug.LogError("NavMesh path is partial.");
+        }
+
+    }
+
+
+    void SetNextWaypoint()
+    {
+        Debug.Log("Setting next waypoint");
+
+        if (currentWaypointIndex < waypoints.Length - 1)
+        {
+            currentWaypointIndex++;
+        }
+        else
+        {
+            currentWaypointIndex = 0;
+        }
+
+        agent.SetDestination(waypoints[currentWaypointIndex].position);
     }
 }
