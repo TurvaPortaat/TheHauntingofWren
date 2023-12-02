@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Waypoint
+  - Wall
+  - House
+  - Interactable
   layers:
   - Default
   - TransparentFX
