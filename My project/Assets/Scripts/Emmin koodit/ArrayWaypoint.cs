@@ -19,7 +19,7 @@ public class AsukasLiikkuu : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Distance to waypoint: " + Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position));
+        //Debug.Log("Distance to waypoint: " + Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position));
 
         if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position) < 0.5f ||
             agent.remainingDistance < 0.1f)
@@ -38,7 +38,7 @@ public class AsukasLiikkuu : MonoBehaviour
 
     void SetNextWaypoint()
     {
-        Debug.Log("Setting next waypoint");
+        //Debug.Log("Setting next waypoint");
 
         if (currentWaypointIndex < waypoints.Length - 1)
         {
