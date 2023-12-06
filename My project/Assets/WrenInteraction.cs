@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WrenInteraction : MonoBehaviour
 {
+    public GameObject FloatingEPrefab;
     public AudioSource Piano;   //Tarkista että oikea käytössä, vink unityforum
     private void OnTriggerEnter(Collider other)
     {
