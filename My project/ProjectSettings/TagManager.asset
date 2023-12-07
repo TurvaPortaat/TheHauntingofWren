@@ -9,6 +9,7 @@ TagManager:
   - House
   - Interactable
   - Wren
+  - 4NPC
   layers:
   - Default
   - TransparentFX
