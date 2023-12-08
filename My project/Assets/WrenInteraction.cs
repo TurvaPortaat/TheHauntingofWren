@@ -8,7 +8,7 @@ public class WrenInteraction : MonoBehaviour
     public AudioSource Piano;   //Tarkista ett‰ oikea k‰ytˆss‰, vink unityforum
     public float soundDuration = 10f;
 
-    public SpookOMeter spookOMeter; //viitataan mittariin
+    public GameObject spookOMeterGameObject;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Interactable")
@@ -121,32 +121,30 @@ public class WrenInteraction : MonoBehaviour
 
     private IEnumerator UpdateSpookOMeter()
     {
-        yield return new WaitForSeconds(0.1f); // venaillaan ett‰ muutokset ehtii tapahtuu
+        // Ei odotusta t‰ss‰ vaiheessa, ellei tarvita
+        // Odota halutun ajan vain, jos on erityinen syy
 
-        //P‰ivit‰ mittari
-
-        if(spookOMeter != null) 
+        // P‰ivit‰ SpookOMeter-objektia, jos se on liitetty
+        if (spookOMeterGameObject != null)
         {
-            spookOMeter.IncreaseSpookLevel();
+            SpookOMeter spookOMeter = spookOMeterGameObject.GetComponent<SpookOMeter>();
+            if (spookOMeter != null)
+            {
+                spookOMeter.IncreaseSpookLevel();
+            }
+            else
+            {
+                Debug.LogError("SpookOMeter-komponentti puuttuu!");
+            }
         }
         else
         {
-            Debug.Log("Spook-o-meter puuttuu!");
+            Debug.LogError("SpookOMeter-objekti puuttuu!");
         }
-       
-       
-    }
-    public class SpookOMeter : MonoBehaviour
-    {
-        private float spookLevel = 0f;
 
-        public void IncreaseSpookLevel()
-        {
-            spookLevel += 1f; // Voit s‰‰t‰‰ kasvum‰‰r‰‰ tarpeidesi mukaan
-            Debug.Log($"Spook-o-meter kasvoi! Uusi taso: {spookLevel}");
-            // Voit lis‰t‰ t‰ss‰ muita toimintoja mittarin kasvattamisen yhteydess‰
-        }
+        yield return null;
     }
+
     // Update is called once per frame
     void Update()
     {

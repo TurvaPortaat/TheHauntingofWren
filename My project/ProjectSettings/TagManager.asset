@@ -12,6 +12,7 @@ TagManager:
   - 4NPC
   - NPC1
   - NPC2
+  - spookOMeter
   layers:
   - Default
   - TransparentFX
