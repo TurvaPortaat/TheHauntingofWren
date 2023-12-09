@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4483636, g: 0.49839747, b: 0.5756129, a: 1}
+  m_IndirectSpecularColor: {r: 0.44836414, g: 0.49839836, b: 0.5756137, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1303,6 +1303,11 @@ Transform:
   - {fileID: 903653466}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &133103561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 665794f5250c60244abd968abd6d256d, type: 3}
+  m_PrefabInstance: {fileID: 2143520332}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &169976692 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4241873536707986198, guid: 02ad78cca7f19f843b49a2e580791919, type: 3}
@@ -3303,7 +3308,7 @@ MonoBehaviour:
   FloatingEPrefab: {fileID: 0}
   Piano: {fileID: 0}
   soundDuration: 10
-  spookOMeterGameObject: {fileID: 852390866}
+  spookOMeterGameObject: {fileID: 2146073455}
 --- !u!1 &540607706
 GameObject:
   m_ObjectHideFlags: 0
@@ -4138,6 +4143,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: NPC1
       objectReference: {fileID: 0}
+    - target: {fileID: 2223639932434330405, guid: bb38f18553acf2b408b122cfd67e1961, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: bb38f18553acf2b408b122cfd67e1961, type: 3}
       propertyPath: m_LocalScale.x
       value: 26
@@ -4272,7 +4281,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.13000011, y: 0.89}
+  m_AnchoredPosition: {x: 0.13000011, y: 0.68}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &817147962
@@ -4499,11 +4508,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 846606383}
   m_Mesh: {fileID: 5653272346061167883, guid: 02ad78cca7f19f843b49a2e580791919, type: 3}
---- !u!1 &852390866 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4541579879758891602, guid: 3da42eef108eb974ab2391fb239abb44, type: 3}
-  m_PrefabInstance: {fileID: 2116460355}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &857293451
 GameObject:
   m_ObjectHideFlags: 0
@@ -8561,7 +8565,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2982926897403094195, guid: 3ef71c61a4b7a584ab19647cf6f6946e, type: 3}
       propertyPath: m_Name
-      value: lavuaariWren (1)
+      value: lavuaariNPC
       objectReference: {fileID: 0}
     - target: {fileID: 2982926897403094195, guid: 3ef71c61a4b7a584ab19647cf6f6946e, type: 3}
       propertyPath: m_Layer
@@ -9513,6 +9517,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: NPC2
       objectReference: {fileID: 0}
+    - target: {fileID: 2223639932434330405, guid: 665794f5250c60244abd968abd6d256d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: 665794f5250c60244abd968abd6d256d, type: 3}
       propertyPath: m_LocalScale.x
       value: 26
@@ -9544,13 +9552,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 665794f5250c60244abd968abd6d256d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2143520335}
   m_SourcePrefab: {fileID: 100100000, guid: 665794f5250c60244abd968abd6d256d, type: 3}
 --- !u!4 &2143520333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 665794f5250c60244abd968abd6d256d, type: 3}
   m_PrefabInstance: {fileID: 2143520332}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2143520335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133103561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d72f7cec2f5324d98d559506d0c95d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2145172398
 GameObject:
   m_ObjectHideFlags: 0

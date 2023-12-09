@@ -13,7 +13,7 @@ public class WrenInteraction : MonoBehaviour
     {
         if (other.gameObject.tag == "Interactable")
         {
-            Debug.Log("Wren huomasi Esineen" + other.gameObject.name);
+            Debug.Log("Wren huomasi Esineen " + other.gameObject.name);
 
             switch (other.gameObject.name)
             {
@@ -102,6 +102,7 @@ public class WrenInteraction : MonoBehaviour
 
             }
         }
+
     }
 
     private void PlaySound(AudioSource audioSource)
@@ -130,7 +131,7 @@ public class WrenInteraction : MonoBehaviour
             SpookOMeter spookOMeter = spookOMeterGameObject.GetComponent<SpookOMeter>();
             if (spookOMeter != null)
             {
-                spookOMeter.IncreaseSpookLevel();
+                    spookOMeter.IncreaseSpookLevel();
             }
             else
             {
