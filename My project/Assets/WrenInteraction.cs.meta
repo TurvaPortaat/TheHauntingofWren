@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 01d0dd03cf7ef804e856bba6fa3cdb40
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - FloatingEPrefab: {instanceID: 0}
+  - Piano: {instanceID: 0}
+  - spookOMeterGameObject: {fileID: 4541579879758891602, guid: 3da42eef108eb974ab2391fb239abb44, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
