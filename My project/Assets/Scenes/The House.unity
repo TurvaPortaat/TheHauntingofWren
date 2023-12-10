@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43679607, g: 0.484425, b: 0.56467813, a: 1}
+  m_IndirectSpecularColor: {r: 0.43679658, g: 0.48442572, b: 0.5646794, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6621,6 +6621,7 @@ GameObject:
   - component: {fileID: 1556624886}
   - component: {fileID: 1556624888}
   - component: {fileID: 1556624887}
+  - component: {fileID: 1556624889}
   m_Layer: 0
   m_Name: Hahmo2
   m_TagString: Untagged
@@ -6691,6 +6692,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 1
+--- !u!95 &1556624889
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556624885}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 665794f5250c60244abd968abd6d256d, type: 3}
+  m_Controller: {fileID: 9100000, guid: b6c05f91812443d4bb296e8b350b3fff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1581312202
 GameObject:
   m_ObjectHideFlags: 0
@@ -7524,7 +7546,7 @@ GameObject:
   - component: {fileID: 1859454200}
   - component: {fileID: 1859454202}
   - component: {fileID: 1859454201}
-  - component: {fileID: 1859454203}
+  - component: {fileID: 1859454204}
   m_Layer: 0
   m_Name: Hahmo1
   m_TagString: Player
@@ -7604,22 +7626,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 1
---- !u!111 &1859454203
-Animation:
+--- !u!95 &1859454204
+Animator:
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859454199}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 0}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 9000000, guid: 665794f5250c60244abd968abd6d256d, type: 3}
+  m_Controller: {fileID: 9100000, guid: b6c05f91812443d4bb296e8b350b3fff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1860255549 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3320400766194581496, guid: 5e6682d1a65bf7846bde496ef3c96d45, type: 3}
@@ -8794,15 +8821,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: 665794f5250c60244abd968abd6d256d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 26
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: 665794f5250c60244abd968abd6d256d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 26
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: 665794f5250c60244abd968abd6d256d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 26
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8879528566716807029, guid: 665794f5250c60244abd968abd6d256d, type: 3}
       propertyPath: m_LocalPosition.x
