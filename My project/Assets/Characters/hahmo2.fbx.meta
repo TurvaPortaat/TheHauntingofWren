@@ -24,14 +24,43 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|walk
+      takeName: Armature|walk
+      internalID: -4799524434163024911
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -57,7 +86,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
-    optimizeBones: 1
+    optimizeBones: 0
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -82,7 +111,287 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: hahmo2(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: body
+      parentName: hahmo2(Clone)
+      position: {x: -0, y: 10.643779, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.865873, y: 0.865873, z: 0.865873}
+    - name: Armature
+      parentName: hahmo2(Clone)
+      position: {x: 0.13583022, y: 3.447233, z: -0.37678966}
+      rotation: {x: -0.70211226, y: 0.16536799, z: -0.17308338, w: 0.67062217}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Bone
+      parentName: Armature
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.001
+      parentName: Bone
+      position: {x: -0, y: 0.01, z: 0}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.002
+      parentName: Bone.001
+      position: {x: -0, y: 0.010314038, z: 8.881784e-18}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bone.003
+      parentName: Bone.002
+      position: {x: -0, y: 0.00528625, z: -1.7763568e-17}
+      rotation: {x: 0.034477834, y: -0.00000011913839, z: -0.000000004110071, w: 0.9994055}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Bone.003_end
+      parentName: Bone.003
+      position: {x: -0, y: 0.01130018, z: 0}
+      rotation: {x: -0.034477834, y: 0.00000011913839, z: 0.000000004110071, w: 0.9994055}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: "olkap\xE4\xE4.l"
+      parentName: Bone.001
+      position: {x: -0, y: 0.010314038, z: 8.881784e-18}
+      rotation: {x: 0.015658826, y: 0.024748147, z: 0.7504755, w: 0.6602491}
+      scale: {x: 1.0000005, y: 1.0000002, z: 1}
+    - name: hauis.l
+      parentName: "olkap\xE4\xE4.l"
+      position: {x: -1.641456e-10, y: 0.0069346325, z: -1.11758706e-10}
+      rotation: {x: 0.0075822603, y: -0.00362106, z: 0.04068515, w: 0.9991366}
+      scale: {x: 1.0000006, y: 1.0000004, z: 0.99999994}
+    - name: "kyynerp\xE4\xE4.l"
+      parentName: hauis.l
+      position: {x: -5.681068e-10, y: 0.010370001, z: 1.6763806e-10}
+      rotation: {x: -0.012851821, y: 0.0018146774, z: 0.0010652388, w: 0.99991524}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: "k\xE4si.l"
+      parentName: "kyynerp\xE4\xE4.l"
+      position: {x: 0.0000000016391277, y: 0.0111870505, z: -3.7252902e-11}
+      rotation: {x: -0.3522702, y: -0.070842706, z: 0.18605714, w: 0.9144779}
+      scale: {x: 1.0000004, y: 1.0000005, z: 0.99999994}
+    - name: pikkurilli2.l
+      parentName: "k\xE4si.l"
+      position: {x: -0.00027691087, y: 0.003501294, z: -0.001872652}
+      rotation: {x: -0.19756219, y: -0.0027446654, z: 0.046415787, w: 0.979187}
+      scale: {x: 0.99999976, y: 0.9999996, z: 1}
+    - name: pikkurilli1.l
+      parentName: pikkurilli2.l
+      position: {x: -5.401671e-10, y: 0.0013975922, z: -1.4901161e-10}
+      rotation: {x: 0.0971201, y: 0.0070743994, z: -0.034987945, w: 0.99463236}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000006}
+    - name: pikkurilli1.l_end
+      parentName: pikkurilli1.l
+      position: {x: -0, y: 0.001132658, z: 0}
+      rotation: {x: 0.060082622, y: 0.077657804, z: -0.80869067, w: 0.5799817}
+      scale: {x: 1.0000012, y: 1.0000005, z: 1}
+    - name: "nimet\xF6n2.l"
+      parentName: "k\xE4si.l"
+      position: {x: -0.00016123004, y: 0.0042504417, z: -0.0010055959}
+      rotation: {x: -0.07162686, y: 0.008632862, z: -0.033084944, w: 0.9968453}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1.0000001}
+    - name: "nimet\xF6n1.l"
+      parentName: "nimet\xF6n2.l"
+      position: {x: -5.9604643e-10, y: 0.001930198, z: 8.9406965e-10}
+      rotation: {x: 0.03589193, y: 0.000008425674, z: 0.030710112, w: 0.9988837}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
+    - name: "nimet\xF6n1.l_end"
+      parentName: "nimet\xF6n1.l"
+      position: {x: -0, y: 0.0015912428, z: 0}
+      rotation: {x: 0.027323755, y: 0.019661933, z: -0.8041619, w: 0.5934564}
+      scale: {x: 1.0000002, y: 0.9999994, z: 0.9999998}
+    - name: keskari2.l
+      parentName: "k\xE4si.l"
+      position: {x: 0.000059156046, y: 0.0046725096, z: -0.0000632067}
+      rotation: {x: -0.023547078, y: -0.0052167093, z: -0.005257361, w: 0.9996953}
+      scale: {x: 0.9999996, y: 0.9999996, z: 1.0000002}
+    - name: keskari1.l
+      parentName: keskari2.l
+      position: {x: -0.0000000016391277, y: 0.002033961, z: 4.4703483e-10}
+      rotation: {x: 0.0056946888, y: -0.00003821356, z: -0.004245337, w: 0.9999748}
+      scale: {x: 0.9999999, y: 0.9999998, z: 0.9999998}
+    - name: keskari1.l_end
+      parentName: keskari1.l
+      position: {x: -0, y: 0.0016764947, z: 0}
+      rotation: {x: 0.004774168, y: 0.014295179, z: -0.8004763, w: 0.599175}
+      scale: {x: 1, y: 0.9999997, z: 1.0000001}
+    - name: etusormi2.l
+      parentName: "k\xE4si.l"
+      position: {x: 0.0002986419, y: 0.0046249214, z: 0.0010342338}
+      rotation: {x: 0.040863976, y: -0.0017951203, z: -0.009581224, w: 0.99911714}
+      scale: {x: 0.99999994, y: 0.9999998, z: 1.0000001}
+    - name: etusormi1.l
+      parentName: etusormi2.l
+      position: {x: 6.705522e-10, y: 0.0018045248, z: -5.9604643e-10}
+      rotation: {x: -0.015958125, y: 0.00025100488, z: 0.001891802, w: 0.99987084}
+      scale: {x: 0.99999994, y: 0.9999999, z: 1.0000002}
+    - name: etusormi1.l_end
+      parentName: etusormi1.l
+      position: {x: -0, y: 0.0015280014, z: 0}
+      rotation: {x: -0.01736331, y: -0.022480184, z: -0.80128664, w: 0.597606}
+      scale: {x: 1.0000002, y: 0.99999946, z: 1.0000001}
+    - name: peukalo2.l
+      parentName: "k\xE4si.l"
+      position: {x: 0.0004926334, y: 0.0024794235, z: 0.0022305606}
+      rotation: {x: 0.306849, y: 0.01683778, z: -0.05022837, w: 0.95028275}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1.0000002}
+    - name: peukalo1.l
+      parentName: peukalo2.l
+      position: {x: 1.862645e-10, y: 0.0014949511, z: -1.4901161e-10}
+      rotation: {x: 0.014151707, y: -0.001524685, z: -0.02984499, w: 0.99945325}
+      scale: {x: 0.9999997, y: 1.0000002, z: 1}
+    - name: peukalo1.l_end
+      parentName: peukalo1.l
+      position: {x: -0, y: 0.0013115373, z: 0}
+      rotation: {x: -0.0955018, y: -0.15083638, z: -0.77689564, w: 0.6037889}
+      scale: {x: 0.99999964, y: 1.0000001, z: 1.0000002}
+    - name: "olkap\xE4\xE4.r"
+      parentName: Bone.001
+      position: {x: -0, y: 0.010314038, z: 8.881784e-18}
+      rotation: {x: 0.00518173, y: -0.019704968, z: -0.646229, w: 0.7628715}
+      scale: {x: 1.0000001, y: 0.99999976, z: 1}
+    - name: hauis.r
+      parentName: "olkap\xE4\xE4.r"
+      position: {x: 0.0000000015459954, y: 0.0067587094, z: -3.8184225e-10}
+      rotation: {x: -0.010024652, y: 0.0034680818, z: 0.12640505, w: 0.991922}
+      scale: {x: 1.0000002, y: 1.0000007, z: 1}
+    - name: "kyynerp\xE4\xE4.r"
+      parentName: hauis.r
+      position: {x: 7.0780515e-10, y: 0.010558426, z: 8.5681673e-10}
+      rotation: {x: -0.012208294, y: -0.0018656997, z: 0.0047292314, w: 0.99991256}
+      scale: {x: 0.99999976, y: 0.99999934, z: 0.99999994}
+    - name: "k\xE4si.r"
+      parentName: "kyynerp\xE4\xE4.r"
+      position: {x: -3.7252902e-11, y: 0.011187051, z: -3.7252902e-11}
+      rotation: {x: -0.020304097, y: -0.0019657311, z: -0.046721894, w: 0.99869967}
+      scale: {x: 1.0000005, y: 1.0000006, z: 0.99999976}
+    - name: pikkurilli2.r
+      parentName: "k\xE4si.r"
+      position: {x: 0.00027690912, y: 0.0035012942, z: -0.001872652}
+      rotation: {x: -0.08114859, y: 0.0037732355, z: -0.014209265, w: 0.99659353}
+      scale: {x: 1.0000007, y: 1.0000007, z: 1.0000004}
+    - name: pikkurilli1.r
+      parentName: pikkurilli2.r
+      position: {x: -4.842877e-10, y: 0.0013975919, z: -5.2154064e-10}
+      rotation: {x: 0.036167398, y: -0.0071070245, z: 0.013030418, w: 0.9992356}
+      scale: {x: 1.0000006, y: 1.0000007, z: 1.0000001}
+    - name: pikkurilli1.r_end
+      parentName: pikkurilli1.r
+      position: {x: -0, y: 0.001132658, z: 0}
+      rotation: {x: 0.060082607, y: -0.07765784, z: 0.80869067, w: 0.5799816}
+      scale: {x: 0.9999999, y: 0.9999997, z: 0.99999964}
+    - name: "nimet\xF6n2.r"
+      parentName: "k\xE4si.r"
+      position: {x: 0.0001612284, y: 0.004250443, z: -0.001005596}
+      rotation: {x: -0.071626864, y: -0.008632881, z: 0.03308509, w: 0.99684525}
+      scale: {x: 1.0000007, y: 1.0000007, z: 1.0000001}
+    - name: "nimet\xF6n1.r"
+      parentName: "nimet\xF6n2.r"
+      position: {x: -1.11758706e-10, y: 0.0019301986, z: 7.4505804e-11}
+      rotation: {x: 0.03135142, y: -0.000008442436, z: -0.026824862, w: 0.9991484}
+      scale: {x: 1.0000007, y: 1.0000005, z: 1.0000002}
+    - name: "nimet\xF6n1.r_end"
+      parentName: "nimet\xF6n1.r"
+      position: {x: -0, y: 0.0015912428, z: 0}
+      rotation: {x: 0.027323784, y: -0.01966191, z: 0.804162, w: 0.5934562}
+      scale: {x: 1.0000001, y: 0.9999995, z: 0.9999998}
+    - name: keskari2.r
+      parentName: "k\xE4si.r"
+      position: {x: -0.00005915732, y: 0.004672509, z: -0.000063207146}
+      rotation: {x: -0.023547037, y: 0.005216675, z: 0.0052573313, w: 0.99969536}
+      scale: {x: 1.0000007, y: 1.0000007, z: 1.0000002}
+    - name: keskari1.r
+      parentName: keskari2.r
+      position: {x: 4.4703483e-10, y: 0.0020339615, z: 7.4505804e-11}
+      rotation: {x: 0.0056946333, y: 0.000038245227, z: 0.0042453012, w: 0.99997485}
+      scale: {x: 1, y: 1.0000001, z: 0.9999999}
+    - name: keskari1.r_end
+      parentName: keskari1.r
+      position: {x: -0, y: 0.0016764947, z: 0}
+      rotation: {x: 0.004774186, y: -0.014295196, z: 0.8004763, w: 0.5991749}
+      scale: {x: 0.9999999, y: 1.0000001, z: 1}
+    - name: etusormi2.r
+      parentName: "k\xE4si.r"
+      position: {x: -0.0002986426, y: 0.0046249214, z: 0.0010342331}
+      rotation: {x: 0.040863995, y: 0.0017951455, z: 0.009581203, w: 0.9991172}
+      scale: {x: 1.0000011, y: 1.0000008, z: 1.0000004}
+    - name: etusormi1.r
+      parentName: etusormi2.r
+      position: {x: -2.7939676e-10, y: 0.001804526, z: -2.2351741e-10}
+      rotation: {x: -0.015958162, y: -0.00025105683, z: -0.0018918633, w: 0.9998709}
+      scale: {x: 0.99999994, y: 1.0000001, z: 0.9999999}
+    - name: etusormi1.r_end
+      parentName: etusormi1.r
+      position: {x: -0, y: 0.0015280014, z: 0}
+      rotation: {x: -0.017363286, y: 0.022480188, z: 0.80128676, w: 0.5976059}
+      scale: {x: 1.0000002, y: 1.0000002, z: 0.99999994}
+    - name: peukalo2.r
+      parentName: "k\xE4si.r"
+      position: {x: -0.0004926348, y: 0.0024794238, z: 0.00223056}
+      rotation: {x: 0.3042443, y: -0.0058082524, z: -0.017417364, w: 0.95241714}
+      scale: {x: 1.000001, y: 1.0000008, z: 1.0000002}
+    - name: peukalo1.r
+      parentName: peukalo2.r
+      position: {x: -9.0338287e-10, y: 0.0014949493, z: -2.6077032e-10}
+      rotation: {x: 0.014151692, y: 0.0015246468, z: 0.029844886, w: 0.9994532}
+      scale: {x: 1, y: 1.0000001, z: 0.99999976}
+    - name: peukalo1.r_end
+      parentName: peukalo1.r
+      position: {x: -0, y: 0.0013115373, z: 0}
+      rotation: {x: -0.09550185, y: 0.15083642, z: 0.7768957, w: 0.60378873}
+      scale: {x: 0.99999964, y: 0.9999997, z: 1}
+    - name: lonkka.l
+      parentName: Armature
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.219436, y: 0.21943615, z: -0.67219627, w: -0.6721963}
+      scale: {x: 1, y: 1.0000002, z: 1.0000001}
+    - name: reisi.l
+      parentName: lonkka.l
+      position: {x: 8.881784e-18, y: 0.0049524754, z: -3.413936e-17}
+      rotation: {x: -0.5374484, y: -0.0049527944, z: -0.009948892, w: 0.8432235}
+      scale: {x: 1.0000002, y: 1.0000002, z: 1.0000001}
+    - name: "s\xE4\xE4ri.l"
+      parentName: reisi.l
+      position: {x: -9.3132255e-12, y: 0.014535151, z: -8.381903e-11}
+      rotation: {x: -0.0026450453, y: -0.0000001299132, z: 0.000000009656072, w: 0.99999654}
+      scale: {x: 1.0000004, y: 1.0000006, z: 1.0000005}
+    - name: jalka.l
+      parentName: "s\xE4\xE4ri.l"
+      position: {x: -0.0000000017695129, y: 0.014534133, z: -3.72529e-10}
+      rotation: {x: -0.094430394, y: 0.05815254, z: -0.5877659, w: -0.80139416}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1}
+    - name: jalka.l_end
+      parentName: jalka.l
+      position: {x: -0, y: 0.006453232, z: 0}
+      rotation: {x: 0.5750968, y: -0.4206346, z: -0.57509714, w: -0.40198714}
+      scale: {x: 1.0000002, y: 0.9999994, z: 1}
+    - name: lonkka.r
+      parentName: Armature
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.219436, y: -0.21943615, z: 0.67219627, w: -0.6721963}
+      scale: {x: 1, y: 1.0000002, z: 1.0000001}
+    - name: reisi.r
+      parentName: lonkka.r
+      position: {x: -8.881784e-18, y: 0.0049524754, z: -3.413936e-17}
+      rotation: {x: -0.315152, y: 0.0058114063, z: 0.011673335, w: 0.9489516}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1}
+    - name: "s\xE4\xE4ri.r"
+      parentName: reisi.r
+      position: {x: 1.0244548e-10, y: 0.014535149, z: -2.1420418e-10}
+      rotation: {x: -0.0026450453, y: 0.000000029922557, z: 0.000000023571943, w: 0.99999654}
+      scale: {x: 1.0000001, y: 1.0000005, z: 1.0000004}
+    - name: jalka.r
+      parentName: "s\xE4\xE4ri.r"
+      position: {x: -1.3969838e-10, y: 0.014534134, z: -3.7252902e-11}
+      rotation: {x: -0.10580614, y: -0.08500328, z: -0.58600223, w: 0.7988622}
+      scale: {x: 1.0000008, y: 1.0000006, z: 1.0000007}
+    - name: jalka.r_end
+      parentName: jalka.r
+      position: {x: -0, y: 0.006453232, z: 0}
+      rotation: {x: -0.5750968, y: -0.42063448, z: -0.57509726, w: 0.40198696}
+      scale: {x: 1.0000005, y: 0.9999991, z: 1.0000002}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -97,9 +406,9 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 1
+  animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
