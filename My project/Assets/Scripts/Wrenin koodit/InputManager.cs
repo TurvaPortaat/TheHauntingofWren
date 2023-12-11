@@ -49,4 +49,10 @@ public class InputManager : MonoBehaviour
         cameraInputX = cameraInput.x;
         cameraInputY = cameraInput.y;   
     }
+    private void HandleInteractInput()
+    {
+        // Tässä voit kutsua metodia tai suorittaa toiminnon E-näppäimen painalluksen aikana
+        Debug.Log("Interact key pressed!");
+    }
+
 }

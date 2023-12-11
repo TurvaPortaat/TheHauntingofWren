@@ -5,150 +5,184 @@ using UnityEngine;
 public class WrenInteraction : MonoBehaviour
 {
     public GameObject FloatingEPrefab;
-    public AudioSource Piano;   //Tarkista ett‰ oikea k‰ytˆss‰, vink unityforum
-    public float soundDuration = 10f;
+    private FloatingE floatingEScript;
+    public AudioSource Piano;
+    public AudioSource Vessa;
+    public AudioSource Fridge;
+    public AudioSource Boxes;
+    public AudioSource Hella;
+    public AudioSource Television;
+    public AudioSource Sink;
+    public AudioSource Kaappi;
+    //public float soundDuration = 10f;
 
     public GameObject spookOMeterGameObject;
+    private SpookOMeter spookOMeter;
+
+    private bool canInteract = false;
+
+    private void Start()
+    {
+        // Alusta FloatingE-skripti
+        floatingEScript = FloatingEPrefab.GetComponent<FloatingE>();
+
+        if (floatingEScript == null)
+        {
+            Debug.LogError("FloatingE-skripti puuttuu!");
+        }
+        // Alusta spookOMeter
+        spookOMeter = spookOMeterGameObject.GetComponent<SpookOMeter>();
+
+        if (spookOMeter == null)
+        {
+            Debug.LogError("SpookOMeter-komponentti puuttuu!");
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Interactable")
+        if (other.CompareTag("Interactable"))
         {
             Debug.Log("Wren huomasi Esineen " + other.gameObject.name);
 
-            switch (other.gameObject.name)
-            {
-                case "pianoWren":
+            // Lis‰‰ FloatingE-n‰kyvyyden p‰ivitys t‰h‰n
+            UpdateFloatingEVisibility(true);
 
-                    Debug.Log("Piano tos!");
-                    //PlaySound(Piano);
-                    StartCoroutine(UpdateSpookOMeter());
-                    //T‰ss‰ voi lis‰t‰ muita toimintoja myˆs pianoon
-                    break;
-
-                case "Television":
-                    Debug.Log("Telkkari tos!");
-                    //PlaySound(Television);
-                    StartCoroutine(UpdateSpookOMeter());
-                    //T‰ss‰ voi lis‰t‰ toimintoja telkkuu
-                    break;
-
-                case "fridgeWren":
-                    Debug.Log("J‰‰kaappi tos!");
-                    //PlaySound(Television);
-                    StartCoroutine(UpdateSpookOMeter());
-                    //T‰ss‰ voi lis‰t‰ toimintoja j‰‰kaappii
-                    break;
-
-                case "hellaWren":
-
-                    Debug.Log("Hella tos!");
-                    //PlaySound(Hella);
-                    StartCoroutine(UpdateSpookOMeter());
-                    //T‰ss‰ voi lis‰t‰ toimintoja
-                    break;
-
-                case "ekaKaappiWren":
-
-                    Debug.Log("Eka kaappi tos!");
-                    //PlaySound(Kaappi);
-                    StartCoroutine(UpdateSpookOMeter());
-                    //T‰ss‰ voi lis‰t‰ toimintoja
-                    break;
-
-                case "tokaKaappiWren":
-
-                    Debug.Log("Toka kaappi tos!");
-                    //PlaySound(Kaappi);
-                    StartCoroutine(UpdateSpookOMeter());
-                    //T‰ss‰ voi lis‰t‰ toimintoja
-                    break;
-
-                case "sinkWren":
-
-                    Debug.Log("Sink tos!");
-                    //PlaySound(Sink);
-                    StartCoroutine(UpdateSpookOMeter());
-                    //T‰ss‰ voi lis‰t‰ toimintoja
-                    break;
-
-                case "vessaWren":
-
-                    Debug.Log("Vessa tos!");
-                    //PlaySound(Vessa);
-                    StartCoroutine(UpdateSpookOMeter());
-                    //T‰ss‰ voi lis‰t‰ toimintoja
-                    break;
-
-                case "boxesWren":
-
-                    Debug.Log("Laatikoit tos!");
-                    //PlaySound(Boxes);
-                    StartCoroutine(UpdateSpookOMeter());
-                    //T‰ss‰ voi lis‰t‰ toimintoja
-                    break;
-
-
-                case "boxesWren2":
-
-                    Debug.Log("Lis‰‰ laatikoit tos!");
-                    //PlaySound(Boxes);
-                    StartCoroutine(UpdateSpookOMeter());
-                    //T‰ss‰ voi lis‰t‰ toimintoja
-                    break;
-
-                default:
-                    Debug.Log("Tunnistamaton esine tos!");
-                    break;
-
-            }
+            canInteract = true;
         }
-
     }
 
-    private void PlaySound(AudioSource audioSource)
+    private void OnTriggerExit(Collider other)
     {
-        if (audioSource != null)
+        if (other.CompareTag("Interactable"))
         {
-            if (!audioSource.isPlaying)
+            // P‰ivit‰ FloatingE-n‰kyvyys pois p‰‰lt‰, kun Wren poistuu colliderista
+            UpdateFloatingEVisibility(false);
+
+            canInteract = false;
+        }
+    }
+
+    private void Update()
+    {
+        if (canInteract && Input.GetKeyDown(KeyCode.E))
+        {
+            // Suorita interaktio vain, jos pelaaja voi vuorovaikuttaa ja painaa E-n‰pp‰int‰
+            PerformInteraction();
+        }
+    }
+
+    private void PerformInteraction()
+    {
+        if (spookOMeter != null)
+        {
+            // Tarkista ensin, onko "NPC1" tai "NPC2" "4NPC" objektin colliderissa
+            Collider[] npcColliders = Physics.OverlapBox(spookOMeterGameObject.transform.position, spookOMeterGameObject.transform.localScale / 2f);
+            bool hasNPC1 = false;
+            bool hasNPC2 = false;
+
+            foreach (Collider npcCollider in npcColliders)
             {
-                audioSource.Play();
+                if (npcCollider.CompareTag("NPC1"))
+                {
+                    hasNPC1 = true;
+                }
+                else if (npcCollider.CompareTag("NPC2"))
+                {
+                    hasNPC2 = true;
+                }
+            }
+
+            if (hasNPC1 || hasNPC2)
+            {
+                // Soita ‰‰niefekti vain vuorovaikutukselliselle objektille
+                PlayInteractionSound();
+
+                // Lis‰‰ mittarin kasvattamisen koodi t‰h‰n
+                for (float timer = 0; timer < 5f; timer += Time.deltaTime)
+                {
+                    spookOMeter.IncreaseSpookLevel();
+                    // Keskeyt‰ looppi heti kun mittari on kasvatettu
+                    return;
+                }
             }
         }
         else
         {
-            Debug.Log("AudioSource puuttuu!");
+            Debug.LogError("SpookOMeter-komponentti puuttuu!");
         }
     }
 
-    private IEnumerator UpdateSpookOMeter()
+    private void PlayInteractionSound()
     {
-        // Ei odotusta t‰ss‰ vaiheessa, ellei tarvita
-        // Odota halutun ajan vain, jos on erityinen syy
-
-        // P‰ivit‰ SpookOMeter-objektia, jos se on liitetty
-        if (spookOMeterGameObject != null)
+        Debug.Log("Trying to play sounds...");
+        // Tarkista jokainen AudioSource ja soita siihen liitetty ‰‰niefekti
+        if (Piano != null && !Piano.isPlaying)
         {
-            SpookOMeter spookOMeter = spookOMeterGameObject.GetComponent<SpookOMeter>();
-            if (spookOMeter != null)
+            Debug.Log("Playing Piano sound...");
+            Piano.Play();
+        }
+
+        if (Vessa != null && !Vessa.isPlaying)
+        {
+            Debug.Log("Playing Vessa sound...");
+            Vessa.Play();
+        }
+
+        if (Fridge != null && !Fridge.isPlaying)
+        {
+            Debug.Log("Playing Fridge sound...");
+            Fridge.Play();
+        }
+
+        if (Boxes != null && !Boxes.isPlaying)
+        {
+            Debug.Log("Playing Boxes sound...");
+            Boxes.Play();
+        }
+
+        if (Hella != null && !Hella.isPlaying)
+        {
+            Debug.Log("Playing Hella sound...");
+            Hella.Play();
+        }
+
+        if (Television != null && !Television.isPlaying)
+        {
+            Debug.Log("Playing Television sound...");
+            Television.Play();
+        }
+
+        if (Sink != null && !Sink.isPlaying)
+        {
+            Debug.Log("Playing Sink sound...");
+            Sink.Play();
+        }
+
+        if (Kaappi != null && !Kaappi.isPlaying)
+        {
+            Debug.Log("Playing Kaappi sound...");
+            Kaappi.Play();
+        }
+}
+
+    private void UpdateFloatingEVisibility(bool isVisible)
+    {
+        if (FloatingEPrefab != null)
+        {
+            FloatingE floatingEScript = FloatingEPrefab.GetComponent<FloatingE>();
+            if (floatingEScript != null)
             {
-                    spookOMeter.IncreaseSpookLevel();
+                floatingEScript.SetFloatingEVisibility(isVisible);
             }
             else
             {
-                Debug.LogError("SpookOMeter-komponentti puuttuu!");
+                Debug.LogError("FloatingE-skripti puuttuu FloatingE-objektista!");
             }
         }
         else
         {
-            Debug.LogError("SpookOMeter-objekti puuttuu!");
+            Debug.LogError("FloatingE-objekti puuttuu!");
         }
-
-        yield return null;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
