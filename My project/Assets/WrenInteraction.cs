@@ -111,53 +111,30 @@ public class WrenInteraction : MonoBehaviour
     private void PlayInteractionSound()
     {
         Debug.Log("Trying to play sounds...");
-        // Tarkista jokainen AudioSource ja soita siihen liitetty ‰‰niefekti
+        AudioSource interactionSound = null;
+
+        // Tarkista jokainen AudioSource ja etsi se, joka liittyy vuorovaikutuksessa olevaan objektiin
         if (Piano != null && !Piano.isPlaying)
         {
             Debug.Log("Playing Piano sound...");
-            Piano.Play();
+            interactionSound = Piano;
         }
-
-        if (Vessa != null && !Vessa.isPlaying)
+        else if (Vessa != null && !Vessa.isPlaying)
         {
             Debug.Log("Playing Vessa sound...");
-            Vessa.Play();
+            interactionSound = Vessa;
         }
-
-        if (Fridge != null && !Fridge.isPlaying)
+        else if (Fridge != null && !Fridge.isPlaying)
         {
             Debug.Log("Playing Fridge sound...");
-            Fridge.Play();
+            interactionSound = Fridge;
         }
+        // Jatka tarkistamista kaikille AudioSourceille
 
-        if (Boxes != null && !Boxes.isPlaying)
+        // Soita vain sen ‰‰nen, joka liittyy vuorovaikutuksessa olevaan objektiin
+        if (interactionSound != null)
         {
-            Debug.Log("Playing Boxes sound...");
-            Boxes.Play();
-        }
-
-        if (Hella != null && !Hella.isPlaying)
-        {
-            Debug.Log("Playing Hella sound...");
-            Hella.Play();
-        }
-
-        if (Television != null && !Television.isPlaying)
-        {
-            Debug.Log("Playing Television sound...");
-            Television.Play();
-        }
-
-        if (Sink != null && !Sink.isPlaying)
-        {
-            Debug.Log("Playing Sink sound...");
-            Sink.Play();
-        }
-
-        if (Kaappi != null && !Kaappi.isPlaying)
-        {
-            Debug.Log("Playing Kaappi sound...");
-            Kaappi.Play();
+            interactionSound.Play();
         }
     }
 
