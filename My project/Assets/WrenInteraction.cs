@@ -74,9 +74,12 @@ public class WrenInteraction : MonoBehaviour
 
     private void PerformInteraction()
     {
+        // Soita ‰‰niefekti
+        PlayInteractionSound();
+
         if (spookOMeter != null)
         {
-            // Tarkista ensin, onko "NPC1" tai "NPC2" "4NPC" objektin colliderissa
+            // Tarkista, onko "NPC1" tai "NPC2" "4NPC" objektin colliderissa
             Collider[] npcColliders = Physics.OverlapBox(spookOMeterGameObject.transform.position, spookOMeterGameObject.transform.localScale / 2f);
             bool hasNPC1 = false;
             bool hasNPC2 = false;
@@ -95,16 +98,8 @@ public class WrenInteraction : MonoBehaviour
 
             if (hasNPC1 || hasNPC2)
             {
-                // Soita ‰‰niefekti vain vuorovaikutukselliselle objektille
-                PlayInteractionSound();
-
                 // Lis‰‰ mittarin kasvattamisen koodi t‰h‰n
-                for (float timer = 0; timer < 5f; timer += Time.deltaTime)
-                {
-                    spookOMeter.IncreaseSpookLevel();
-                    // Keskeyt‰ looppi heti kun mittari on kasvatettu
-                    return;
-                }
+                spookOMeter.IncreaseSpookLevel();
             }
         }
         else
@@ -164,7 +159,8 @@ public class WrenInteraction : MonoBehaviour
             Debug.Log("Playing Kaappi sound...");
             Kaappi.Play();
         }
-}
+    }
+
 
     private void UpdateFloatingEVisibility(bool isVisible)
     {
