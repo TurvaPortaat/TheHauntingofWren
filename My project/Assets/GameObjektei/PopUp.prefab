@@ -65,9 +65,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Move - WASD
+  m_text: 'CONTROLS
+
+
+    Move - WASD
 
     Interact - E
+
+    Pause Menu - Esc
+
 
 '
   m_isRightToLeft: 0
