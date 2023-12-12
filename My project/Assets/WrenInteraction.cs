@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WrenInteraction : MonoBehaviour
 {
@@ -16,7 +17,8 @@ public class WrenInteraction : MonoBehaviour
     public AudioSource Kaappi;
 
     public GameObject spookOMeterGameObject;
-    private SpookOMeter spookOMeter;
+    public Slider spookOMeterSlider;
+
     private string interactableName;
 
     private bool canInteract = false;
@@ -30,12 +32,13 @@ public class WrenInteraction : MonoBehaviour
         {
             Debug.LogError("FloatingE-skripti puuttuu!");
         }
-        // Alusta spookOMeter
-        spookOMeter = spookOMeterGameObject.GetComponent<SpookOMeter>();
 
-        if (spookOMeter == null)
+        // Poista kommentti t‰st‰, jotta spookOMeter otetaan k‰yttˆˆn
+        //spookOMeter = spookOMeterGameObject.GetComponent<SpookOMeter>();
+
+        if (spookOMeterSlider == null)
         {
-            Debug.LogError("SpookOMeter-komponentti puuttuu!");
+            Debug.LogError("Slider-komponentti puuttuu!");
         }
     }
 
@@ -54,6 +57,11 @@ public class WrenInteraction : MonoBehaviour
             interactableName = other.gameObject.name.ToLower();
             Debug.Log("Lowercased interactable name: " + interactableName);
         }
+        else if (other.CompareTag("4NPC"))
+        {
+            Debug.Log("Wren entered 4NPC collider");
+            canInteract = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -63,6 +71,11 @@ public class WrenInteraction : MonoBehaviour
             // P‰ivit‰ FloatingE-n‰kyvyys pois p‰‰lt‰, kun Wren poistuu colliderista
             UpdateFloatingEVisibility(false);
 
+            canInteract = false;
+        }
+        else if (other.CompareTag("4NPC"))
+        {
+            Debug.Log("Wren exited 4NPC collider");
             canInteract = false;
         }
     }
@@ -115,6 +128,7 @@ public class WrenInteraction : MonoBehaviour
                 break;
 
             case "lavuaariwren":
+            case "sinkwren":
                 Debug.Log("Playing Sink sound...");
                 PlaySound(Sink);
                 break;
@@ -142,22 +156,37 @@ public class WrenInteraction : MonoBehaviour
     private void PerformInteraction()
     {
         // Soita ‰‰niefekti ja anna tarvittava argumentti (tag)
-        if (canInteract)
+        Debug.Log("Playing interaction sound...");
+        PlayInteractionSound(interactableName);
+
+        // Tarkista pelaajan l‰hell‰ olevat colliderit
+        Collider[] npcColliders = Physics.OverlapBox(transform.position, transform.localScale / 2f);
+
+        // Tarkista, onko pelaaja (Wren) colliderissa
+        bool wrenIsPresent = false;
+        foreach (Collider npcCollider in npcColliders)
         {
-            //string interactableTag = gameObject.tag; // K‰yt‰ oikeaa tapaa hakea objektin tagi
-            PlayInteractionSound(interactableName); // Varmista, ett‰ annat oikean tagin
+            if (npcCollider.CompareTag("Wren")) // Oletan t‰ss‰, ett‰ pelaajan tagi on "Player", voit vaihtaa sen tarvittaessa
+            {
+                wrenIsPresent = true;
+                break;
+            }
         }
 
-        if (spookOMeter != null)
+        // Jos pelaaja (Wren) on l‰sn‰, tarkista "4NPC" -tagattu objekti ja "NPC1" ja "NPC2" hahmot
+        if (wrenIsPresent)
         {
-            // Tarkista, onko "NPC1" tai "NPC2" "4NPC" objektin colliderissa
-            Collider[] npcColliders = Physics.OverlapBox(spookOMeterGameObject.transform.position, spookOMeterGameObject.transform.localScale / 2f);
+            bool has4NPC = false;
             bool hasNPC1 = false;
             bool hasNPC2 = false;
 
             foreach (Collider npcCollider in npcColliders)
             {
-                if (npcCollider.CompareTag("NPC1"))
+                if (npcCollider.CompareTag("4NPC"))
+                {
+                    has4NPC = true;
+                }
+                else if (npcCollider.CompareTag("NPC1"))
                 {
                     hasNPC1 = true;
                 }
@@ -167,15 +196,20 @@ public class WrenInteraction : MonoBehaviour
                 }
             }
 
-            if (hasNPC1 || hasNPC2)
+            // Jos molemmat ehdot t‰yttyv‰t, lis‰‰ spook-o-meterin tasoa
+            if (has4NPC && (hasNPC1 || hasNPC2))
             {
-                // Lis‰‰ mittarin kasvattamisen koodi t‰h‰n
-                spookOMeter.IncreaseSpookLevel();
+                spookOMeterSlider.value += 1; // T‰m‰ kasvattaa spook-o-meterin arvoa. Voit s‰‰t‰‰ arvoa tarpeidesi mukaan.
+                Debug.Log("Increasing Spook Level!");
+            }
+            else
+            {
+                Debug.Log("Conditions not met for Spook-o-meter increase.");
             }
         }
         else
         {
-            Debug.LogError("SpookOMeter-komponentti puuttuu!");
+            Debug.Log("Player (Wren) not present in colliders.");
         }
     }
 
