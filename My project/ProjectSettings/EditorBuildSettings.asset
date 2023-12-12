@@ -12,9 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 82593f16071cd614eb3fb8ad4fef75f2
   - enabled: 1
+    path: Assets/Scenes/Controls Pop Up.unity
+    guid: 56bd9a851b2118e42b4592b7aea878fe
+  - enabled: 1
     path: "Assets/Scenes/Kikken leikkikentt\xE4.unity"
     guid: 93c672f1a81341e48bc388d3cd4daddd
-  - enabled: 0
-    path: Assets/Scenes/The House.unity
-    guid: c098e7cdebd4b9942be31a5f87dcf80e
+  - enabled: 1
+    path: Assets/Scenes/MainMenu2.unity
+    guid: fe65216a3617d1645b63d48d42c8ae1e
   m_configObjects: {}
