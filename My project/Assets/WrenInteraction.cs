@@ -14,10 +14,10 @@ public class WrenInteraction : MonoBehaviour
     public AudioSource Television;
     public AudioSource Sink;
     public AudioSource Kaappi;
-    //public float soundDuration = 10f;
 
     public GameObject spookOMeterGameObject;
     private SpookOMeter spookOMeter;
+    private string interactableName;
 
     private bool canInteract = false;
 
@@ -49,6 +49,10 @@ public class WrenInteraction : MonoBehaviour
             UpdateFloatingEVisibility(true);
 
             canInteract = true;
+
+            //Store the name of the interactable object
+            interactableName = other.gameObject.name.ToLower();
+            Debug.Log("Lowercased interactable name: " + interactableName);
         }
     }
 
@@ -72,10 +76,77 @@ public class WrenInteraction : MonoBehaviour
         }
     }
 
+    private void PlayInteractionSound(string interactableName)
+    {
+        Debug.Log("Trying to play sounds...");
+        Debug.Log("Object name received: " + interactableName);
+
+        // Vertaa objektin nime‰ case-insensitive
+        switch (interactableName.ToLower())
+        {
+            case "pianowren":
+                Debug.Log("Playing Piano sound...");
+                PlaySound(Piano);
+                break;
+
+            case "television":
+                Debug.Log("Playing Television sound...");
+                PlaySound(Television);
+                break;
+
+            case "fridgewren":
+                Debug.Log("Playing Fridge sound...");
+                PlaySound(Fridge);
+                break;
+
+            case "boxeswren":
+                Debug.Log("Playing Boxes sound...");
+                PlaySound(Boxes);
+                break;
+
+            case "vessawren":
+                Debug.Log("Playing Vessa sound...");
+                PlaySound(Vessa);
+                break;
+
+            case "hellawren":
+                Debug.Log("Playing Hella sound...");
+                PlaySound(Hella);
+                break;
+
+            case "lavuaariwren":
+                Debug.Log("Playing Sink sound...");
+                PlaySound(Sink);
+                break;
+
+            case "ekakaappiwren":
+            case "tokakaappiwren":
+                Debug.Log("Playing Kaappi sound...");
+                PlaySound(Kaappi);
+                break;
+
+            default:
+                Debug.Log("Unknown interactable object!");
+                break;
+        }
+    }
+
+    private void PlaySound(AudioSource audioSource)
+    {
+        if (audioSource != null && !audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+    }
+
     private void PerformInteraction()
     {
-        // Soita ‰‰niefekti
-        PlayInteractionSound();
+        // Soita ‰‰niefekti ja anna tarvittava argumentti (tag)
+        if (canInteract)
+        {
+            //string interactableTag = gameObject.tag; // K‰yt‰ oikeaa tapaa hakea objektin tagi
+            PlayInteractionSound(interactableName); // Varmista, ett‰ annat oikean tagin
+        }
 
         if (spookOMeter != null)
         {
@@ -108,37 +179,6 @@ public class WrenInteraction : MonoBehaviour
         }
     }
 
-    private void PlayInteractionSound()
-    {
-        Debug.Log("Trying to play sounds...");
-        AudioSource interactionSound = null;
-
-        // Tarkista jokainen AudioSource ja etsi se, joka liittyy vuorovaikutuksessa olevaan objektiin
-        if (Piano != null && !Piano.isPlaying)
-        {
-            Debug.Log("Playing Piano sound...");
-            interactionSound = Piano;
-        }
-        else if (Vessa != null && !Vessa.isPlaying)
-        {
-            Debug.Log("Playing Vessa sound...");
-            interactionSound = Vessa;
-        }
-        else if (Fridge != null && !Fridge.isPlaying)
-        {
-            Debug.Log("Playing Fridge sound...");
-            interactionSound = Fridge;
-        }
-        // Jatka tarkistamista kaikille AudioSourceille
-
-        // Soita vain sen ‰‰nen, joka liittyy vuorovaikutuksessa olevaan objektiin
-        if (interactionSound != null)
-        {
-            interactionSound.Play();
-        }
-    }
-
-
     private void UpdateFloatingEVisibility(bool isVisible)
     {
         if (FloatingEPrefab != null)
@@ -150,7 +190,7 @@ public class WrenInteraction : MonoBehaviour
             }
             else
             {
-                Debug.LogError("FloatingE-skripti puuttuu FloatingE-objektista!");
+                Debug.LogError("FloatingE- skripti puuttuu FloatingE-objektista!");
             }
         }
         else

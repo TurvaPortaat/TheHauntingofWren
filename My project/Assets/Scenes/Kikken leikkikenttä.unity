@@ -2915,7 +2915,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 08e048f8834561044b8e91163fa71654, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3606,7 +3606,6 @@ MonoBehaviour:
   Television: {fileID: 1267604571}
   Sink: {fileID: 287900364}
   Kaappi: {fileID: 430413856}
-  soundDuration: 10
   spookOMeterGameObject: {fileID: 2146073455}
 --- !u!1 &540607706
 GameObject:
@@ -5913,7 +5912,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 72c1864958aaf084c9e92fbfe24d7899, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6178,9 +6177,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 86ee13df7e2af1c4ab80dd9945a440f6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1134922110}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 86ee13df7e2af1c4ab80dd9945a440f6, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1134922111}
   m_SourcePrefab: {fileID: 100100000, guid: 86ee13df7e2af1c4ab80dd9945a440f6, type: 3}
 --- !u!4 &1134922108 stripped
@@ -6193,18 +6189,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 86ee13df7e2af1c4ab80dd9945a440f6, type: 3}
   m_PrefabInstance: {fileID: 1134922107}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1134922110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1134922109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4908b2aab01935e42a4882db4ec9a3a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &1134922111
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6869,7 +6853,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 39c524adc045beb4b91052a4f3b37f42, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0
