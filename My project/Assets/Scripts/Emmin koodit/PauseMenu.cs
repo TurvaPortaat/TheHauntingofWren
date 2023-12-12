@@ -9,15 +9,16 @@ public class PauseMenu : MonoBehaviour
 
     void Start()
     {
+        // Alussa varmistetaan, että pauseMenu on piilotettu
         if (pauseMenu != null)
         {
             pauseMenu.SetActive(false);
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // ESC-painikkeen painaminen
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePauseMenu();
@@ -26,12 +27,23 @@ public class PauseMenu : MonoBehaviour
 
     void TogglePauseMenu()
     {
-        if(pauseMenu != null)
+        // Vaihda pause menun näkyvyys
+        if (pauseMenu != null)
         {
             bool isPaused = !pauseMenu.activeSelf;
             pauseMenu.SetActive(isPaused);
 
-            Time.timeScale = isPaused ? 0 : 1;
+            // Ajan hallinta
+            if (isPaused)
+            {
+                // Peli on pausella
+                Time.timeScale = 0;
+            }
+            else
+            {
+                // Peli ei ole pausella, jatka normaalisti
+                Time.timeScale = 1;
+            }
         }
     }
 }
