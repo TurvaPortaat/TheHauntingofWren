@@ -22,7 +22,7 @@ public class LoadLevelAfterTime : MonoBehaviour
 
         if(timeElapsed > delayBeforeLoading )
         {
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(1);
         }
         else if (Input.GetMouseButtonDown(0))
         {
