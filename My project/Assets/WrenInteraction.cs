@@ -17,7 +17,7 @@ public class WrenInteraction : MonoBehaviour
     public AudioSource Kaappi;
 
     public GameObject spookOMeterGameObject;
-    public Slider spookOMeterSlider;
+    public Slider mySlider;
 
     private string interactableName;
 
@@ -25,6 +25,8 @@ public class WrenInteraction : MonoBehaviour
 
     private void Start()
     {
+        mySlider.value = 0;
+
         // Alusta FloatingE-skripti
         floatingEScript = FloatingEPrefab.GetComponent<FloatingE>();
 
@@ -36,7 +38,7 @@ public class WrenInteraction : MonoBehaviour
         // Poista kommentti t‰st‰, jotta spookOMeter otetaan k‰yttˆˆn
         //spookOMeter = spookOMeterGameObject.GetComponent<SpookOMeter>();
 
-        if (spookOMeterSlider == null)
+        if (mySlider == null)
         {
             Debug.LogError("Slider-komponentti puuttuu!");
         }
@@ -199,7 +201,7 @@ public class WrenInteraction : MonoBehaviour
             // Jos molemmat ehdot t‰yttyv‰t, lis‰‰ spook-o-meterin tasoa
             if (has4NPC && (hasNPC1 || hasNPC2))
             {
-                spookOMeterSlider.value += 1; // T‰m‰ kasvattaa spook-o-meterin arvoa. Voit s‰‰t‰‰ arvoa tarpeidesi mukaan.
+                mySlider.value += 10; // T‰m‰ kasvattaa spook-o-meterin arvoa. Voit s‰‰t‰‰ arvoa tarpeidesi mukaan.
                 Debug.Log("Increasing Spook Level!");
             }
             else
