@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LoadLevelAfterTime : MonoBehaviour
 {
@@ -12,15 +11,28 @@ public class LoadLevelAfterTime : MonoBehaviour
     private string scenNameToLoad;
 
     private float timeElapsed;
+
+    public Button skipButton; // Reference to the skip button in the Unity Editor
+
+    private void Start()
+    {
+        // Add a listener to the skip button to call the LoadNextLevel method when clicked
+        if (skipButton != null)
+        {
+            skipButton.onClick.AddListener(LoadNextLevel);
+        }
+    }
+
     public void LoadNextLevel()
     {
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
+
     private void Update()
     {
         timeElapsed += Time.deltaTime;
 
-        if(timeElapsed > delayBeforeLoading )
+        if (timeElapsed > delayBeforeLoading)
         {
             SceneManager.LoadScene(1);
         }
@@ -29,12 +41,10 @@ public class LoadLevelAfterTime : MonoBehaviour
             LoadNextLevel();
         }
     }
+
     IEnumerator LoadLevel(int levelIndex)
     {
-
         yield return new WaitForSeconds(1);
-
         SceneManager.LoadScene(levelIndex);
     }
 }
-
